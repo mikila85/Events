@@ -38,11 +38,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="addUser.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="addUser.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/addUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="45" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.46708465">
+            <state line="42" column="45" selection-start="1243" selection-end="1243" vertical-scroll-proportion="-3.7692308">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Users.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="53" selection-start="424" selection-end="424" vertical-scroll-proportion="0.54858935">
+              <folding>
+                <element signature="e#6#162#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,15 +105,6 @@
       </file>
       <file leaf-file-name="pagination.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/lang/en/pagination.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="compile.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/compile.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
@@ -498,15 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="42" selection-start="413" selection-end="413" vertical-scroll-proportion="-10.461538">
-          <folding>
-            <element signature="e#6#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/compile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -572,8 +565,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/addUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="45" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.46708465">
+        <state line="42" column="45" selection-start="1243" selection-end="1243" vertical-scroll-proportion="-3.7692308">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="53" selection-start="424" selection-end="424" vertical-scroll-proportion="0.54858935">
+          <folding>
+            <element signature="e#6#162#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
