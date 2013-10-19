@@ -1,7 +1,6 @@
 <?php
 
 class HomeController extends BaseController {
-
 	/*
 	|--------------------------------------------------------------------------
 	| Default Home Controller
@@ -19,5 +18,11 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
+
+
+    public function addUser(){
+        //return Users::addUser(array("asdasf@asf"));
+
+    }
 
 }

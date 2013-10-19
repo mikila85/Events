@@ -15,3 +15,9 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('test', 'HomeController@test');
+
+Route::get('test1', 'HomeController@test1');
+
+Route::resource('users', 'UsersController');
