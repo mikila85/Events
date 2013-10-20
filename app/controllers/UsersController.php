@@ -2,7 +2,11 @@
 
 class UsersController extends \BaseController {
 
-    //protected $layout = 'layouts.main';
+//    public function __construct()
+//    {
+//        $this->beforeFilter('isEmailExist', array('only' => 'store'));
+//    }
+        //protected $layout = 'layouts.main';
     /**
      * Index
      */
@@ -33,9 +37,9 @@ class UsersController extends \BaseController {
 		//
         $data = Input::all();
         $rules = array(
-            'email' => 'required|email',
-            'firstName' => 'required|alpha_num|min:2|max:32',
-            'lastName' => 'required|alpha_num|min:2|max:32',
+            'email' => 'required|email|isEmailExist',
+            'firstname' => 'required|alpha_num|min:2|max:32',
+            'lastname' => 'required|alpha_num|min:2|max:32',
             'password' => 'required|Confirmed|min:3'
         );
 
@@ -48,6 +52,8 @@ class UsersController extends \BaseController {
             // The given data did not pass validation
         }
 
+        unset($data['password_confirmation']);
+        Users::addUser($data);
 
 //        if ($validator->passes()) {
 //            // Normally we would do something with the data.
@@ -68,7 +74,9 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		//
+
         return $id;
+
 	}
 
 	/**

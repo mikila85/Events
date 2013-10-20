@@ -81,3 +81,21 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+App::missing(function($exception)
+{
+     return "404";
+    //return Response::make(View::make('errors.404') , 404);
+});
+
+App::error(function(Exception $exception, $code)
+{
+    return "exception: " . $exception->getMessage();
+});
+
+App::error(function(NotAllowedException $exception, $code)
+{
+    return Redirect::to('/')
+        ->with('error', 'You do not have permission to do that');
+});

@@ -13,9 +13,16 @@ class Users {
      * @param array $user - User array.
      */
     public static function addUser(array $user){
-        DB::insert('insert into users (email, firstname) values (:email, :firstname)',
-            array('email'=>'users@gaasdsdfsf.xzc', 'firstname'=>'first'));
-        echo "OK";
+        //try{
+            $id = DB::table('users')->insertGetId($user);
+//        }catch (Exception $e){
+//            //throw new NotFoundException();
+//            return;
+//        }
+        echo json_encode(array("OK"));
     }
 
+    public static function isEmailExists($email){
+        return DB::table('users')->where('email', '=', $email)->count();
+    }
 }

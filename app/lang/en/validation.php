@@ -68,7 +68,7 @@ return array(
 	),
 	"unique"           => "The :attribute has already been taken.",
 	"url"              => "The :attribute format is invalid.",
-
+    "is_email_exist" => "the email already exists",
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines
