@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('package', 'myAuth::MyauthController@showWelcome');
+Route::get('package', 'MyauthController@showWelcome');

@@ -1,6 +1,7 @@
 <?php
 
 class MyauthController extends BaseController {
+
     /*
     |--------------------------------------------------------------------------
     | Default Home Controller
@@ -14,9 +15,10 @@ class MyauthController extends BaseController {
     |
     */
 
+
     public function showWelcome()
     {
-        return 'abc';
+        return View::make('auth::auth');
     }
 
 }
