@@ -89,10 +89,10 @@ App::missing(function($exception)
     //return Response::make(View::make('errors.404') , 404);
 });
 
-App::error(function(Exception $exception, $code)
-{
-    return "exception: " . $exception->getMessage();
-});
+//App::error(function(Exception $exception, $code)
+//{
+//    return "exception: " . $exception->getMessage();
+//});
 
 App::error(function(NotAllowedException $exception, $code)
 {
