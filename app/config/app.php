@@ -114,6 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Myvendor\Auth\AuthServiceProvider',
+        'Myvendor\Myauth\MyauthServiceProvider',
 	),
 
 	/*

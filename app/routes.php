@@ -35,7 +35,7 @@ Route::get('social/{action?}', array("as" => "hybridauth", function($action = ""
         }
         catch (Exception $e) {
             // redirect back to http://URL/social/
-            return Redirect::route('hybridauth');
+           return Redirect::route('hybridauth');
         }
         return;
     }
@@ -50,7 +50,7 @@ Route::get('social/{action?}', array("as" => "hybridauth", function($action = ""
     }
     catch(Exception $e) {
         // exception codes can be found on HybBridAuth's web site
-        return $e->getMessage();
+        //return $e->getMessage();
     }
     // access user profile data
     echo "Connected with: <b>{$provider->id}</b><br />";
