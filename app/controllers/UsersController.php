@@ -25,7 +25,7 @@ class UsersController extends \BaseController {
         $layout =  View::make('layouts.main');
         $layout->nest('content', 'users.addUser');
         return $layout;
-}
+    }
 
 	/**
 	 * Store a newly created resource in storage.
@@ -53,6 +53,7 @@ class UsersController extends \BaseController {
         }
 
         unset($data['password_confirmation']);
+        $data['password'] = Hash::make($data['password']);
         Users::addUser($data);
 
 //        if ($validator->passes()) {
@@ -112,4 +113,19 @@ class UsersController extends \BaseController {
 		//
 	}
 
+    public function login()
+    {
+        return View::make("users.login");
+    }
+    public function loginAuth()
+    {
+        $data = Input::all();
+        //var_dump($data);
+        //die;
+        if (Auth::attempt(array('email' => $data['email'], 'password' => $data['password'])))
+        {
+            return "Aproved";
+        }
+        return "Declined";
+    }
 }

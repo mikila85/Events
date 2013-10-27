@@ -6,11 +6,11 @@
 |--------------------------------------------------------------------------
 */
 
-$bundle_route = '(:bundle)/';
+$bundle_route = '/myauth';
 
 if(Config::get('myauth::config.bundle_route') != ''){
 
-	Route::get($bundle_route, function(){ 
+	Route::get($bundle_route, function(){
 
 		if (Auth::guest()){
 			return Redirect::to(Config::get('myauth::config.bundle_route') . '/' . Config::get('myauth::config.login_route'));
@@ -46,9 +46,9 @@ Route::post($login_route, 'myauth::user@login');
 
 $logout_route = $bundle_route . Config::get('myauth::config.logout_route');
 
-Route::get($logout_route, function(){ 
+Route::get($logout_route, function(){
 	Auth::logout();
-	return Redirect::to(Config::get('myauth::config.bundle_route') . '/' . Config::get('myauth::config.login_route')); 
+	return Redirect::to(Config::get('myauth::config.bundle_route') . '/' . Config::get('myauth::config.login_route'));
 });
 
 
@@ -72,18 +72,18 @@ Route::post($signup_route, 'myauth::user@signup');
 */
 
 if(Config::get('myauth::config.login_redirect') != ''){
-	
+
 		return Redirect::to(Config::get('myauth::config.login_redirect'));
 
 } else {
 
 	$dashboard_route = $bundle_route . 'dashboard';
 
-	Route::get($dashboard_route, function(){ 
+	Route::get($dashboard_route, function(){
 		if (Auth::guest()){
 			return Redirect::to(Config::get('myauth::config.bundle_route') . '/' . Config::get('myauth::config.login_route'));
 		} else {
-			return View::make('myauth::dashboard'); 
+			return View::make('myauth::dashboard');
 		}
 	});
 
