@@ -122,10 +122,21 @@ class UsersController extends \BaseController {
         $data = Input::all();
         //var_dump($data);
         //die;
+        Auth::logout();
         if (Auth::attempt(array('email' => $data['email'], 'password' => $data['password'])))
         {
-            return "Aproved";
+            return "Aproved ". Auth::check();
         }
-        return "Declined";
+        return "Declined ". Auth::check();
     }
+    public function logout()
+    {
+        Auth::logout();
+        return "Logged Out!";
+    }
+    public function logcheck()
+    {
+        return "User is: ". Auth::user()->id;
+    }
+
 }

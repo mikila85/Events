@@ -20,7 +20,8 @@ Route::get('test', 'HomeController@test');
 
 Route::get('test1', 'HomeController@test1');
 
-
+Route::get('users/logcheck', 'UsersController@logcheck');
+Route::get('users/logout', 'UsersController@logout');
 Route::get('users/login', 'UsersController@login');
 Route::post('users/login', 'UsersController@loginAuth');
 Route::resource('users', 'UsersController');
@@ -55,10 +56,14 @@ Route::get('social/{action?}', array("as" => "hybridauth", function($action = ""
         //return $e->getMessage();
     }
     // access user profile data
-    echo "Connected with: <b>{$provider->id}</b><br />";
-    echo "As: <b>{$userProfile->displayName}</b><br />";
-    echo "<pre>" . print_r( $userProfile, true ) . "</pre><br />";
+
 
     // logout
     $provider->logout();
+
+    $user_id = User::where('email', '=', $userProfile->email)->first();
+
+    Auth::loginUsingId($user_id->id);
+
+    //return Redirect::route('users/logcheck');
 }));
