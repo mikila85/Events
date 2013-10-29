@@ -13,13 +13,7 @@ class Users {
      * @param array $user - User array.
      */
     public static function addUser(array $user){
-        //try{
-            $id = DB::table('users')->insertGetId($user);
-//        }catch (Exception $e){
-//            //throw new NotFoundException();
-//            return;
-//        }
-        echo json_encode(array("OK"));
+        return DB::table('users')->insertGetId($user);
     }
 
     public static function isEmailExists($email){

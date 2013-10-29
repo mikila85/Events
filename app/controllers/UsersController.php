@@ -54,16 +54,9 @@ class UsersController extends \BaseController {
 
         unset($data['password_confirmation']);
         $data['password'] = Hash::make($data['password']);
-        Users::addUser($data);
-
-//        if ($validator->passes()) {
-//            // Normally we would do something with the data.
-//            return 'Data was saved.';
-//        }
-//        return Redirect::to('/')->withErrors($validator);
-
-        //return Input::all();
-
+        if(Users::addUser($data)){
+            echo json_encode(array("OK"));
+        }
 	}
 
 	/**

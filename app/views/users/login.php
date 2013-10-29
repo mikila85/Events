@@ -17,7 +17,9 @@
     <input type="password" value="abc123" name="password"></br>
 
     <input type="submit" value="send">
-
+    </br>
+    <a href="create">New User</a>
+    <a href="/social">Login With Facebook</a>
 </form>
 
 <script>

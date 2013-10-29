@@ -16,9 +16,18 @@ class AuthmanagerServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
+
+    public function boot()
+    {
+        $this->package('myvendor/authmanager');
+
+        include __DIR__.'/../../routes.php';
+    }
+
 	public function register()
 	{
 		//
+
 	}
 
 	/**
