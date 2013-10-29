@@ -20,8 +20,3 @@ Route::get('test', 'HomeController@test');
 
 Route::get('test1', 'HomeController@test1');
 
-Route::get('users/logcheck', 'UsersController@logcheck');
-Route::get('users/logout', 'UsersController@logout');
-Route::get('users/login', 'UsersController@login');
-Route::post('users/login', 'UsersController@loginAuth');
-Route::resource('users', 'UsersController');

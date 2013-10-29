@@ -108,7 +108,7 @@ class UsersController extends \BaseController {
 
     public function login()
     {
-        return View::make("users.login");
+        return View::make("authmanager::Users.login");
     }
     public function loginAuth()
     {
