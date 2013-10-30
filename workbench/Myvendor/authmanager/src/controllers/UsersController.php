@@ -23,7 +23,7 @@ class UsersController extends \BaseController {
 	public function create()
 	{
         $layout =  View::make('layouts.main');
-        $layout->nest('content', 'users.addUser');
+        $layout->nest('content', 'authmanager::users.addUser');
         return $layout;
     }
 
