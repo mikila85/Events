@@ -6,12 +6,12 @@
  * Time: 6:40 PM
  * To change this template use File | Settings | File Templates.
  */
-Route::resource('users', 'UsersController');
+
 Route::get('users/logcheck', 'UsersController@logcheck');
 Route::get('users/logout', 'UsersController@logout');
 Route::get('users/login', 'UsersController@login');
 Route::post('users/login', 'UsersController@loginAuth');
-
+Route::resource('users', 'UsersController');
 
 Route::get('social/{action?}', array("as" => "hybridauth", function($action = "")
 {

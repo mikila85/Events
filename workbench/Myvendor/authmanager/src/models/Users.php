@@ -14,6 +14,7 @@ class Users {
      */
     public static function addUser(array $user){
         return DB::table('users')->insertGetId($user);
+
     }
 
     public static function isEmailExists($email){

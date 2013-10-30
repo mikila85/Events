@@ -6,7 +6,7 @@
  * Time: 12:26 PM
  * To change this template use File | Settings | File Templates.
  */
-class User{
+class User_Class{
     private $id;
     private $email;
     private $groups;
@@ -37,5 +37,3 @@ class User{
         return self::$currentUser;
     }
 }
-
-User::Auth();

@@ -130,7 +130,12 @@ class UsersController extends \BaseController {
     }
     public function logcheck()
     {
-        return "User is: ". Auth::user()->id;
+        try{
+            return "User is: ". Auth::user()->id;
+       }catch (Exception $e) {
+            return "User is NOT connected!";
+        }
+
     }
 
 }
