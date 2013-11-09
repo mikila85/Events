@@ -20,6 +20,9 @@ class EventController extends \BaseController {
 	public function create()
 	{
 		//
+        $layout =  View::make('layouts.main');
+        $layout->nest('content', 'events.addEvent');
+        return $layout;
 	}
 
 	/**
