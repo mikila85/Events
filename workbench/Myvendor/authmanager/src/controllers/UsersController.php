@@ -135,7 +135,6 @@ class UsersController extends \BaseController {
        }catch (Exception $e) {
             return "User is NOT connected!";
         }
-
     }
 
 }

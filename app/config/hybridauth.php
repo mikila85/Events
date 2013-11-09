@@ -8,7 +8,7 @@
  */
 
 return array(
-    "base_url"   => "http://localhost/social/auth",
+    "base_url"   => "http://events.com/social/auth",
     "providers"  => array (
         "Google"     => array (
             "enabled"    => true,

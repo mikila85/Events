@@ -20,3 +20,4 @@ Route::get('test', 'HomeController@test');
 
 Route::get('test1', 'HomeController@test1');
 
+Route::resource('event', 'EventController');

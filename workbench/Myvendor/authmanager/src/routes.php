@@ -51,7 +51,7 @@ Route::get('social/{action?}', array("as" => "hybridauth", function($action = ""
 //    return;
     $user_data = User::where('email', '=', $userProfile->email)->first();
     if($user_data){
-        Auth::loginUsingId($user_data->id);
+        Auth::loginUsingId($user_data->id, true);
     } else{
         $user_data = array();
         $user_data["email"] = $userProfile->email;
@@ -59,7 +59,7 @@ Route::get('social/{action?}', array("as" => "hybridauth", function($action = ""
         $user_data["firstname"] = $userProfile->firstName;
         $user_data["lastname"] = $userProfile->lastName;
         $user_id = Users::addUser($user_data);
-        Auth::loginUsingId($user_id);
+        Auth::loginUsingId($user_id, true);
     }
 
 

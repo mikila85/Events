@@ -1,4 +1,4 @@
-<h1>error 404</h1>
+<h1>Funny error: 404</h1>
 <?php
 /**
  * Created by JetBrains PhpStorm.
