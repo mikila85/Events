@@ -32,7 +32,31 @@ class EventController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        if(!Auth::user()->id)
+            return;
+        //
+        $data = Input::all();
+        $rules = array(
+            'name' => 'required|alpha_num|min:2|max:100',
+            'address' => 'required|alpha_num|min:2|max:32',
+
+        );
+
+        $validator = Validator::make($data, $rules);
+
+        if ($validator->fails())
+        {
+            $errors = $validator->messages()->getMessages();
+            return json_encode($errors);
+            // The given data did not pass validation
+        }
+
+        $placeID = Places::getEventIDByAddress($data['address']);
+
+
+        if($eventID = Events::create($data)){
+            echo json_encode(array("OK"));
+        }
 	}
 
 	/**

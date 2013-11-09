@@ -1,11 +1,23 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: mike
- * Date: 10/30/13
- * Time: 7:32 AM
+ * User: romanraslin
+ * Date: 09/11/2013
+ * Time: 13:11
  */
 
-class Event extends Eloquent  {
+class Events {
+
+    public static function create(array $data){
+
+        $id = DB::table('events')->insertGetId(
+            array('name' => $data['name'], 'user_ID' => Auth::user()->id)
+        );
+
+        if($id)
+            return $id;
+        return false;
+    }
+
 
 }
