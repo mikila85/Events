@@ -13,22 +13,26 @@
 </script>
 
 <h1>Add new event:</h1>
-<form method="POST" action="/events" id="eventForm">
+<form method="POST" action="/event" id="eventForm">
 
     <span class="formLabel">Event Name:</span>
-    <input type="text" value="" placeholder="Name" name="eventName"></br>
+    <input type="text" value="" placeholder="Name" name="Name"></br>
 
     <span class="formLabel">Address:</span>
-    <input type="text" value=""  placeholder="fifth avenue 24/2" name="eventAddress"></br>
+    <input type="text" value=""  placeholder="fifth avenue 24/2" name="Address"></br>
 
     <input type="submit" value="send">
 
 </form>
 
 <script>
-    $("#eventForm").submit(function () {
-        parseAddress($("#eventForm input[name='eventAddress'").val(), eventForm);
-        formParser("#eventForm");
+
+
+    $('#eventForm').submit(function(){
+
+        parseAddress($("#eventForm input[name='Address'").val(), eventForm);
+        return false;
+
     });
 
 
@@ -56,13 +60,14 @@
         for(var index in fieldsArray) {
             $(toForm).append("<input type='hidden' class=" + fieldClass + " value='" + fieldsArray[index] + " name='" + index + "'>");
         }
+        formParser("#eventForm");
     }
 
     function formParser(form){
         $.ajax({
             type: "POST",
-            url: form.attr('action'),
-            data: form.serialize(),
+            url: $(form).attr('action'),
+            data: $(form).serialize(),
             dataType : "json",
             success: function (response) {
                 console.dir(response);
