@@ -29,10 +29,8 @@
 
 
     $('#eventForm').submit(function(){
-
         parseAddress($("#eventForm input[name='address[full_address]'").val());
         return false;
-
     });
 
     function parseAddress(address){
@@ -45,7 +43,6 @@
                 parsed_address["city"] = results[0]["address_components"][2]["long_name"];
                 parsed_address["country"] = results[0]["address_components"][3]["long_name"];
                 parsed_address["formatted_address"] = results[0]["formatted_address"];
-                console.dir(parsed_address);
                 addHiddenField("addressParts", parsed_address);
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
