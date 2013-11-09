@@ -8,47 +8,70 @@
         font-weight: bold;
     }
 </style>
-<h1>ROMAN ETA DIBILAA!! LOX</h1>
-<form method="POST" action="/events" id="registerForm">
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8vsWhdlN5xOdKltQ2mgHaXiY_k57jbTs&sensor=true&language=iw">
+</script>
 
-    <span class="formLabel">Email:</span>
-    <input type="text" value="test@miki.com" placeholder="email@domain.com" name="email"></br>
+<h1>Add new event:</h1>
+<form method="POST" action="/events" id="eventForm">
 
-    <span class="formLabel">First Name:</span>
-    <input type="text" value="asdfsadf" name="firstname"></br>
+    <span class="formLabel">Event Name:</span>
+    <input type="text" value="" placeholder="Name" name="eventName"></br>
 
-    <span class="formLabel">Last Name:</span>
-    <input type="text" value="sadfsagd" name="lastname"></br>
-
-    <span class="formLabel">Password:</span>
-    <input type="password" value="abc123" name="password"></br>
-
-    <span class="formLabel">Repeat Password:</span>
-    <input type="password" value="abc123" name="password_confirmation"></br>
+    <span class="formLabel">Address:</span>
+    <input type="text" value=""  placeholder="fifth avenue 24/2" name="eventAddress"></br>
 
     <input type="submit" value="send">
 
 </form>
 
 <script>
-    $(document).ready(function () {
-        var form = $('#registerForm');
-
-        form.submit(function () {
-            $.ajax({
-                type: "POST",
-                url: form.attr('action'),
-                data: form.serialize(),
-                dataType : "json",
-                success: function (response) {
-                    console.dir(response);
-                    $(".formAlert").remove();
-                    $.each( response, function( key, value ) {
-                         $("input[name='" + key + "']").after("<span class='formAlert'>" + value + "</span>");
-                    });
-                }
-            });
-            return false;
-        });
+    $("#eventForm").submit(function () {
+        parseAddress($("#eventForm input[name='eventAddress'").val(), eventForm);
+        formParser("#eventForm");
     });
+
+
+
+
+    function parseAddress(address, form){
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var parsed_address = [];
+                parsed_address["house_num"] = results[0]["address_components"][0]["long_name"];
+                parsed_address["street_name"] = results[0]["address_components"][1]["long_name"];
+                parsed_address["city"] = results[0]["address_components"][2]["long_name"];
+                parsed_address["country"] = results[0]["address_components"][3]["long_name"];
+                parsed_address["formatted_address"] = results[0]["formatted_address"];
+                addHiddenField(form, "addressParts", parsed_address);
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
+
+    function addHiddenField(toForm, fieldClass, fieldsArray){
+        $("." + fieldClass).remove(); //remove older.
+        for(var index in fieldsArray) {
+            $(toForm).append("<input type='hidden' class=" + fieldClass + " value='" + fieldsArray[index] + " name='" + index + "'>");
+        }
+    }
+
+    function formParser(form){
+        $.ajax({
+            type: "POST",
+            url: form.attr('action'),
+            data: form.serialize(),
+            dataType : "json",
+            success: function (response) {
+                console.dir(response);
+                $(".formAlert").remove();
+                $.each( response, function( key, value ) {
+                     $("input[name='" + key + "']").after("<span class='formAlert'>" + value + "</span>");
+                });
+            }
+        });
+        return false;
+    }
 </script>
