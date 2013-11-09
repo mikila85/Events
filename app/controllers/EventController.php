@@ -36,8 +36,7 @@ class EventController extends \BaseController {
             return;
         //
         $data = Input::all();
-        var_dump ($data);
-        exit;
+
         $rules = array(
             'name' => 'required|alpha_num|min:2|max:100',
             'address' => 'required|alpha_num|min:2|max:32',

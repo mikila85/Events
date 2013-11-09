@@ -19,7 +19,7 @@
     <input type="text" value="" placeholder="Name" name="name"></br>
 
     <span class="formLabel">Address:</span>
-    <input type="text" value=""  placeholder="fifth avenue 24/2" name="address"></br>
+    <input type="text" value=""  placeholder="fifth avenue 24/2" name="address[full_address]"></br>
 
     <input type="submit" value="send">
 
@@ -30,40 +30,40 @@
 
     $('#eventForm').submit(function(){
 
-        parseAddress($("#eventForm input[name='address'").val(), eventForm);
+        parseAddress($("#eventForm input[name='address[full_address]'").val());
         return false;
 
     });
 
-
-
-
-    function parseAddress(address, form){
+    function parseAddress(address){
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var parsed_address = [];
                 parsed_address["house_num"] = results[0]["address_components"][0]["long_name"];
-                parsed_address["street_name"] = results[0]["address_components"][1]["long_name"];
+                parsed_address["street"] = results[0]["address_components"][1]["long_name"];
                 parsed_address["city"] = results[0]["address_components"][2]["long_name"];
                 parsed_address["country"] = results[0]["address_components"][3]["long_name"];
                 parsed_address["formatted_address"] = results[0]["formatted_address"];
-                addHiddenField(form, "addressParts", parsed_address);
+                console.dir(parsed_address);
+                addHiddenField("addressParts", parsed_address);
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
             }
         });
     }
 
-    function addHiddenField(toForm, fieldClass, fieldsArray){
+    function addHiddenField(fieldClass, fieldsArray){
         $("." + fieldClass).remove(); //remove older.
+
         for(var index in fieldsArray) {
-            $(toForm).append("<input type='hidden' class=" + fieldClass + " value='" + fieldsArray[index] + " name='" + index + "'>");
+            $("#eventForm").append("<input type='hidden'  class='" + fieldClass + "' value='" + fieldsArray[index] + "' name='address[" + index + "]'>");
         }
         formParser("#eventForm");
     }
 
     function formParser(form){
+        console.log($(form).serialize());
         $.ajax({
             type: "POST",
             url: $(form).attr('action'),
