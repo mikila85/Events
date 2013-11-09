@@ -14,7 +14,7 @@ class Places {
      * @return int - address ID
      */
     public static function getEventIDByAddress(array $address){
-        if($data = DB::table('places')->where('full_address', '=', $address)->first()){
+        if($data = DB::table('places')->where('full_address', '=', $address['full_address'])->first()){
             return $data->ID;
         } else {
             $id = DB::table('places')->insertGetId(
