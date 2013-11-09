@@ -32,15 +32,15 @@ class EventController extends \BaseController {
 	 */
 	public function store()
 	{
-        if(!Auth::user()->id)
-            return;
-        //
+        if(!Auth::user()->id){
+            return json_encode(array('error'=>'not conencted'));
+        }
+
         $data = Input::all();
-        var_dump ($data);
-        exit;
+
         $rules = array(
-            'name' => 'required|alpha_num|min:2|max:100',
-            'address' => 'required|alpha_num|min:2|max:32',
+            'name' => 'required|min:2|max:100',
+            'address' => 'required|min:2|max:32',
 
         );
 
@@ -55,9 +55,10 @@ class EventController extends \BaseController {
 
         $placeID = Places::getEventIDByAddress($data['address']);
 
-
+        $data['place_ID'] = $placeID;
+        
         if($eventID = Events::create($data)){
-            echo json_encode(array("OK"));
+            return json_encode(array("OK"));
         }
 	}
 

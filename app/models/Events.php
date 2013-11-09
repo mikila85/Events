@@ -16,7 +16,7 @@ class Events {
     public static function create(array $data){
 
         $id = DB::table('events')->insertGetId(
-            array('name' => $data['name'], 'user_ID' => Auth::user()->id)
+            array('description' => $data['name'], 'user_ID' => Auth::user()->id, 'place_ID'=>$data['place_ID'])
         );
 
         if($id)
