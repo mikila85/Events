@@ -7,6 +7,12 @@
  */
 
 class Places {
+
+    /**
+     * Returns event ID by string (full address), will create place if not exists and return its ID
+     * @param string $address
+     * @return int - address ID
+     */
     public static function getEventIDByAddress($address){
         if($data = DB::table('places')->where('street', '=', $address)->first()){
             return $data->ID;

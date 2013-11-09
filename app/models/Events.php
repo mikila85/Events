@@ -8,6 +8,11 @@
 
 class Events {
 
+    /**
+     * Creates event by data, authentication needed, been checked in the controller.
+     * @param array $data
+     * @return bool or event id if succed
+     */
     public static function create(array $data){
 
         $id = DB::table('events')->insertGetId(
