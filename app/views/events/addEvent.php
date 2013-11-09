@@ -16,10 +16,10 @@
 <form method="POST" action="/event" id="eventForm">
 
     <span class="formLabel">Event Name:</span>
-    <input type="text" value="" placeholder="Name" name="Name"></br>
+    <input type="text" value="" placeholder="Name" name="name"></br>
 
     <span class="formLabel">Address:</span>
-    <input type="text" value=""  placeholder="fifth avenue 24/2" name="Address"></br>
+    <input type="text" value=""  placeholder="fifth avenue 24/2" name="address"></br>
 
     <input type="submit" value="send">
 
@@ -30,7 +30,7 @@
 
     $('#eventForm').submit(function(){
 
-        parseAddress($("#eventForm input[name='Address'").val(), eventForm);
+        parseAddress($("#eventForm input[name='address'").val(), eventForm);
         return false;
 
     });
