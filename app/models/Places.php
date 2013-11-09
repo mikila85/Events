@@ -10,20 +10,20 @@ class Places {
 
     /**
      * Returns event ID by string (full address), will create place if not exists and return its ID
-     * @param string $address
+     * @param array $address -
      * @return int - address ID
      */
-    public static function getEventIDByAddress($address){
+    public static function getEventIDByAddress(array $address){
         if($data = DB::table('places')->where('full_address', '=', $address)->first()){
             return $data->ID;
         } else {
             $id = DB::table('places')->insertGetId(
                 array(
-                    'full_address' => $address,
-                    //'street' => $address['street'],
-                    //'number'=> $address['house_num'],
-                    //'city'=> $address['city'],
-                    //'country'=> $address['country']
+		    'full_address' => $address['full_address'],
+		    'street' => $address['street'],
+		    'number'=> $address['house_num'],
+		    'city'=> $address['city'],
+		    'country'=> $address['country']
                 )
             );
             return $id;
