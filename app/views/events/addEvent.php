@@ -49,13 +49,21 @@
         var parsed_address = [];
 
         $.each( results1[0].address_components, function( key, addressPart) {
-            parsed_address[addressPart.types[0]] =  addressPart.long_name;
+            parsed_address[addressNamefix(addressPart.types[0])] =  addressPart.long_name;
         });
 
         parsed_address["formatted_address"] = results[0]["formatted_address"];
         parsed_address["map_cords"] = results1[0].geometry.location.lat() + "/" + results1[0].geometry.location.lng();
         console.dir(parsed_address);
         addHiddenField("addressParts", parsed_address);
+    }
+
+    function addressNamefix(address){
+        addressAlias = {"route":"street", "locality":"city", "street_number":"house_num"};
+        if(addressAlias[address]){
+            address = addressAlias[address];
+        }
+        return address;
     }
 
     function addHiddenField(fieldClass, fieldsArray){
