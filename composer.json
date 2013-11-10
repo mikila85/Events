@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.0.*",
-        "hybridauth/hybridauth": "*"
+        "hybridauth/hybridauth": "*",
+        "paypal/sdk-core-php": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
