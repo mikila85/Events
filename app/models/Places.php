@@ -17,15 +17,7 @@ class Places {
         if($data = DB::table('places')->where('full_address', '=', $address['full_address'])->first()){
             return $data->ID;
         } else {
-            $id = DB::table('places')->insertGetId(
-                array(
-		    'full_address' => $address['full_address'],
-		    'street' => $address['street'],
-		    'number'=> $address['house_num'],
-		    'city'=> $address['city'],
-		    'country'=> $address['country']
-                )
-            );
+            $id = DB::table('places')->insertGetId( $address );
             return $id;
         }
     }

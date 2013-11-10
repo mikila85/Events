@@ -29,25 +29,33 @@
 
 
     $('#eventForm').submit(function(){
-        parseAddress($("#eventForm input[name='address[full_address]'").val());
+        getAddress($("#eventForm input[name='address[full_address]'").val());
         return false;
     });
-
-    function parseAddress(address){
+    var results1;
+    function getAddress(address){
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                var parsed_address = [];
-                parsed_address["house_num"] = results[0]["address_components"][0]["long_name"];
-                parsed_address["street"] = results[0]["address_components"][1]["long_name"];
-                parsed_address["city"] = results[0]["address_components"][2]["long_name"];
-                parsed_address["country"] = results[0]["address_components"][3]["long_name"];
-                parsed_address["formatted_address"] = results[0]["formatted_address"];
-                addHiddenField("addressParts", parsed_address);
+                results1 = results;
+                parseAddress(results);
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
             }
         });
+    }
+
+    function parseAddress(results){
+        var parsed_address = [];
+
+        $.each( results1[0].address_components, function( key, addressPart) {
+            parsed_address[addressPart.types[0]] =  addressPart.long_name;
+        });
+
+        parsed_address["formatted_address"] = results[0]["formatted_address"];
+        parsed_address["map_cords"] = results1[0].geometry.location.lat() + "/" + results1[0].geometry.location.lng();
+        console.dir(parsed_address);
+        addHiddenField("addressParts", parsed_address);
     }
 
     function addHiddenField(fieldClass, fieldsArray){
