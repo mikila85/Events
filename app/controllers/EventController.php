@@ -40,7 +40,7 @@ class EventController extends \BaseController {
 
         $rules = array(
             'name' => 'required|min:2|max:100',
-            'address' => 'required|min:2|max:32',
+            'address' => 'required|max:100',
 
         );
 

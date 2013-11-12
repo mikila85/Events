@@ -59,10 +59,16 @@
     }
 
     function addressNamefix(address){
-        addressAlias = {"route":"street", "locality":"city", "street_number":"house_num"};
+        addressAlias = {
+            "route":"street",
+            "locality":"city",
+            "street_number":"house_num"
+        };
+
         if(addressAlias[address]){
             address = addressAlias[address];
         }
+
         return address;
     }
 
