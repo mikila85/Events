@@ -17,4 +17,7 @@ Route::get('test', 'HomeController@test');
 
 Route::get('test1', 'HomeController@test1');
 
+
+Route::get('pay', 'PaypaltestController@pay');
+
 Route::resource('event', 'EventController');
