@@ -6,6 +6,6 @@
  * Time: 7:32 AM
  */
 
-class Event extends Eloquent  {
-
+class Eventu extends Eloquent  {
+    protected $table = 'events';
 }

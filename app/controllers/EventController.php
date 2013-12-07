@@ -34,7 +34,8 @@ class EventController extends \BaseController {
             'eventInfo' => View::make('events.create.eventInfo'),
             'eventDistribution' => View::make('events.create.eventDistribution'),
             'ga' => View::make('events.create.ga'),
-            'bottomButtons' => View::make('events.create.bottomButtons')
+            'bottomButtons' => View::make('events.create.bottomButtons'),
+            'scripts' => View::make('events.create.scripts')
         ));
 
 
@@ -49,6 +50,40 @@ class EventController extends \BaseController {
 	 */
 	public function store()
 	{
+
+
+        $alldata = json_decode($_POST["data"], true);
+
+        $data = $alldata['events'];
+        $rules = array(
+            'name' => 'required|min:2|max: 150',
+            'description' => 'min:5',
+        );
+
+        $validator = Validator::make($data, $rules);
+
+        if ($validator->fails())
+        {
+
+            $errors = $validator->messages()->getMessages();
+            return json_encode($errors);
+
+        } else {
+
+
+
+            $event = new Eventu;
+            $event->name = $data['name'];
+            $event->description = $data['description'];
+            $event->user_ID = Auth::user()->id;
+            $event->save();
+
+
+            return json_encode(array("OK"));
+        }
+
+
+        /*
         if(!Auth::user()->id){
             return json_encode(array('error'=>'not conencted'));
         }
@@ -61,6 +96,7 @@ class EventController extends \BaseController {
 
         );
 
+
         $validator = Validator::make($data, $rules);
 
         if ($validator->fails())
@@ -69,7 +105,8 @@ class EventController extends \BaseController {
             return json_encode($errors);
             // The given data did not pass validation
         }
-
+*/
+        /*
         $placeID = Places::getEventIDByAddress($data['address']);
 
         $data['place_ID'] = $placeID;
@@ -77,6 +114,7 @@ class EventController extends \BaseController {
         if($eventID = Events::create($data)){
             return json_encode(array("OK"));
         }
+        */
 	}
 
 	/**

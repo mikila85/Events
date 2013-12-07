@@ -9,7 +9,7 @@
             <a href="#" class="ico5"><span>https://myspace.com/discover/people?chart</span></a>
         </div>
         <div class="link_holder">
-            <a href="#" class="save">Save</a> <a href="#" class="addlink">Add  another link</a>
+            <a href="#" class="save saveEvent">Save</a> <a href="#" class="addlink">Add  another link</a>
         </div>
     </div>
 </div>

@@ -12,8 +12,8 @@
             <div class="edit_form">
                 <h3>Event #: 12345678931</h3>
                 <div class="edit_form_content">
-                    <div class="form_text">* Name of event up to 70 characters:<br><input name="" type="text" class="size1"> <a href="#"><img src="/images/create-event-ico1.png" alt=""></a></div>
-                    <div class="form_text">* Short description of event up to 140 characters:<br><textarea name="" cols="37" rows="4"></textarea></div>
+                    <div class="form_text">* Name of event up to 70 characters:<br><input name="name" type="text" class="size1" name="name"> <a href="#"><img src="/images/create-event-ico1.png" alt=""></a></div>
+                    <div class="form_text">* Short description of event up to 140 characters:<br><textarea name="description" cols="37" rows="4"></textarea></div>
                     <div class="form_text">
                         <div class="text1">Upload logo:</div>
                         <div class="text2"><input name="" type="text" size="13"><input name="" type="button" class="browse"><br><br><img src="/images/create-event-img1.png" alt=""></div>
@@ -61,7 +61,7 @@
                         <div class="text2">* Maximum amount of crowd:</div>
                         <div class="text1"><input name="" type="text" class="size5"></div>
                     </div>
-                    <div class="btn_holder"><input name="" type="submit" value="Save"></div>
+                    <div class="btn_holder"><input name="" type="submit" value="Save" class="saveEvent"></div>
                 </div>
             </div>
         </div>
