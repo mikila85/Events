@@ -14,15 +14,18 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+        $layout =  View::make('layouts.main');
+
+        $layout->nest('content', 'home.index', array(
+            'slider' => View::make('home.slider'),
+            'sideMenu' => View::make('home.sideMenu'),
+            'mainContent' => View::make('home.mainContent')
+        ));
+        return $layout;
 	}
 
 
-    public function addUser(){
-        //return Users::addUser(array("asdasf@asf"));
-
-    }
 
 }

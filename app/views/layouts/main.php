@@ -2,17 +2,15 @@
 <html>
 <head>
 <script src="<?= asset('js/jQuery/jquery-1.10.2.min.js'); ?>"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/tabcontent.js"></script>
 </head>
 <body>
-<h1>Title</h1>
+<?= View::make("layouts.header"); ?>
 <?= $content; ?>
+<?= View::make("layouts.footer"); ?>
 </body>
 </html>
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: mike
- * Date: 10/19/13
- * Time: 12:44 PM
- * To change this template use File | Settings | File Templates.
- */

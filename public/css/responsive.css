@@ -1,0 +1,95 @@
+/*** for ipad tablts***/
+@media only screen and (max-width:760px), (max-width:960px), (max-width:100%) {
+img{width:100%; display:block;}
+.details_holder{ width:98%; padding:0 1%; float:left;}
+
+/*** HEADER ****/
+.logo{ width:240px; float:left; padding:15px 0 0 0;}
+.navigation{display:none;}
+.header_content{ padding:13px 0 0 0;}
+.login_btn{width:100%; float:left; text-align:right; display:block;}
+.login_btn img{float:right; width:100px;}
+.search_holder{display:none;}
+.login_signup{display:none;}
+
+.main_button img{margin:0 10px; float:left; width:118px;}
+
+select {-webkit-appearance:none;}
+.sidebar{ width:90%; float:right; padding:30px 5%; top:0; left:0; position:relative; z-index:50; margin-top:-210px;background:#fff; box-shadow:0 0 5px #000;}
+.sidebar select{display:block;border:1px solid #a6a6a6; width:100%; -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; margin-bottom:10px; font-size:17px;font-family:'latobold'; color:#3d3d3d; padding:10px; background:url(../../../../../Users/mike/Desktop/Dropbox/evetustart__home/images/arrow2.png) no-repeat 98% 17px #fff;}
+
+.js .tinynav {display:block;}
+.js #sidebar_links {display:none } 
+
+.main_content{ width:100%; float:right; padding:30px 0 30px 0; top:0; left:0; position:relative; z-index:50;}
+.product_content ul li{ width:39%; height:auto; border:1px solid #c3c3c3; box-shadow:0 0 5px #d7d7d7; margin:0 5% 20px 5%;}
+.product_content ul li.nosapce{margin:0 5% 20px 5%;}
+.product_content ul li .crowd_needed img{width:100%;}
+
+
+/*** FOOTER ****/
+.footer{ height:auto; padding:25px 0 0 0; float:left; background:#343434;font-size:15px;}
+.footer h3{font-size:20px;}
+.footer_link{width:45%; height:auto; padding:0 0 0 5%;}
+.footer_link ul li{line-height:35px;}
+.news_letter{ width:90%; padding:15px 0 15px 5%; height:auto;}
+.news_letter input{border:0; width:90%; height:35px; padding:0 5%; font-size:18px;}
+.news_letter input.btn_style{width:150px; height:41px; background:url(../../../../../Users/mike/Desktop/Dropbox/evetustart__home/images/check-blog-mobile.png) no-repeat 0 0;}
+.social_link{width:90%; height:auto; padding:0 0 15px 5%;}
+.social_link ul li{width:50%;}
+.copyright{padding:15px 0; background:#202020; line-height:30px;}
+
+/*** EVENT DETAILS ***/
+.event_details_main{ width:63%; padding:30px 2% 30px 0; float:left;}
+.event_details_main .white_box{width:92%; padding:14px 4%;}
+.concert_content{ width:100%;padding:0 0 20px 0;}
+.vanue{width:100%; float:left; line-height:18px;}
+.vanue .img_holder{width:100%; float:left; padding:0 0 10px 0;}
+.social_likes a{display:block; float:left; margin:0 10px 10px 0;}
+.shadetabs li a{padding:10px 10px;}
+.shadetabs li a.selected{padding:10px 10px;}
+
+.event_details_sidebar{ width:35%; float:right;}
+.event_status .text_holder span.mobile_text{display:block; font-size:13px; color:#353535;font-family:'latoregular'!important; padding:10px 0 0 0; font-weight:normal; line-height:19px;}
+.event_status .text_holder span.mobile_text a{background:none; width:auto; height:auto; padding:0; color:#ff9900; text-decoration:none; float:right; font-size:13px;}
+.event_status .text_holder span.mobile_text a:hover{color:#000;}
+.event_status .text_holder span.mobile_text strong{color:#ff9900; font-size:14px; font-weight:normal;}
+}
+
+/*** FOR MOBILE BROWERS ***/
+@media only screen and (max-width:320px),(max-width:300px),(max-width:600px){
+img{width:100%; display:block;}
+
+/*** HEADER ****/
+.header{ width:100%; height:auto; border-top:5px solid #f2851e; padding:20px 0; background:#e5e4e2;}
+.logo{ width:100%; float:left; padding:15px 0 0 0;}
+.logo img{margin:0 auto; width:100%;}
+.login_btn img{float:none; width:100px; margin:0 auto;}
+
+.tagline{ padding:20px 0; height:auto;font-size:18px; text-align:center;}
+.tagline a{background:url(../../../../../Users/mike/Desktop/Dropbox/evetustart__home/images/arrow1.png) no-repeat right 7px;}
+
+.product_content ul li{ width:90%; height:auto; border:1px solid #c3c3c3; box-shadow:0 0 5px #d7d7d7; margin:0 4% 20px 4%;}
+.product_content ul li.nosapce{margin:0 4% 20px 4%;}
+
+.footer h3{font-size:14px; color:#f2851e; padding:0 0 5px 0; font-weight:normal;}
+.footer_link{width:45%; height:auto; padding:0 0 20px 5%;}
+
+.event_details_sidebar{ width:98%; float:right; padding:30px 1%;}
+.event_details_sidebar .white_box{width:92%; padding:14px 4%;}
+.event_details_main{ width:98%; padding:0 1% 30px 1%; float:right;}
+.event_details_main .white_box{width:92%; padding:14px 4%;}
+.concert_content, .vanue{display:none;}
+.social_likes{display:none;}
+.shadetabs {font-size:12px; padding:25px 0 0 0;}
+.shadetabs li a{padding:5px 5px;}
+.shadetabs li a.selected{padding:5px 5px;}
+
+
+}
+
+@media only screen and (max-width:300px){
+.footer_link{width:90%; height:auto; padding:0 0 20px 10%;}
+.footer_link ul li{line-height:20px;}
+.footer h3{font-size:15px; color:#f2851e; padding:0 0 5px 0; font-weight:normal;}
+}

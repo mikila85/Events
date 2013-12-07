@@ -19,9 +19,26 @@ class EventController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		/*
         $layout =  View::make('layouts.main');
         $layout->nest('content', 'events.addEvent');
+        return $layout;*/
+
+
+        $layout =  View::make('layouts.main');
+
+        $layout->nest('content', 'events.create.index', array(
+            'path' => View::make('layouts.path'),
+            'tabs' => View::make('events.create.tabs'),
+            'tickets' => View::make('events.create.tickets'),
+            'eventInfo' => View::make('events.create.eventInfo'),
+            'eventDistribution' => View::make('events.create.eventDistribution'),
+            'ga' => View::make('events.create.ga'),
+            'bottomButtons' => View::make('events.create.bottomButtons')
+        ));
+
+
+
         return $layout;
 	}
 
