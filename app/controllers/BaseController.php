@@ -1,7 +1,11 @@
 <?php
 
 class BaseController extends Controller {
-
+    public function index()
+    {
+        //
+        return View::make("events.addEvent");
+    }
 	/**
 	 * Setup the layout used by the controller.
 	 *

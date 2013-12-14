@@ -39,16 +39,21 @@
                 </div>
                 <div class="edit_form_content nospace">
                     <div class="form_text">* Name of place:<br>
-                        <hidden name="placeHasID" value="0"><input name="nameOfPlace" type="text" class="size1"> <a
-                                href="#"><img src="/images/create-event-ico1.png" alt=""></a>
+                        <hidden name="placeHasID" value="0"><span style="position: relative; display: inline-block;">
+                                <input name="nameOfPlace" type="text" class="size1" onchange="nameOfPlace(this);">
+                                <img src="/images/create-event-ico1.png" alt="">
+                                <div id="list" style="    position: absolute;    top: 25px;    left: 0px;    background: red;    width: 100%;">
+                                    abc
+                                </div>
+                            </span>
                     </div>
                     <div class="form_text">
                         <div class="text3">* Start date:<br><input id="startDate" name="startDate" type="text"
-                                                                   value="00/00/0000" class="size3"> <a href="#"><img
-                                    src="/images/create-event-ico2.png" alt=""></a></div>
+                                                                   value="00/00/0000" class="size3"><img
+                                    src="/images/create-event-ico2.png" alt="" onclick="$('#startDate').focus();"></div>
                         <div class="text3">* End date:<br><input id="endDate" name="endDate" type="text"
-                                                                 value="00/00/0000" class="size3"> <a href="#"><img
-                                    src="/images/create-event-ico2.png" alt=""></a></div>
+                                                                 value="00/00/0000" class="size3"> <img
+                                    src="/images/create-event-ico2.png" alt="" onclick="$('#endDate').focus();"></div>
                     </div>
                     <div class="form_text">* Address:<br><input name="address" type="text" class="size1"></div>
                     <div class="form_text">
@@ -119,8 +124,8 @@
                     <div class="form_text">
                         <div class="text3">* Last campaign date:</div>
                         <div class="text3"><input id="lastCampainDate" name="lastCampainDate" type="text"
-                                                  value="00/00/0000" class="size3"> <a href="#"><img
-                                    src="/images/create-event-ico2.png" alt=""></a></div>
+                                                  value="00/00/0000" class="size3"><img
+                                    src="/images/create-event-ico2.png" alt="" onclick="$('#lastCampainDate').focus();"></div>
                     </div>
                     <div class="form_text">
                         <div class="text2">* Maximum amount of crowd:</div>

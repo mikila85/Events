@@ -12,6 +12,22 @@
 
 <link href="\js\jQueryUI\css\ui-lightness\jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />
 <script>
+    function nameOfPlace(obj){
+        $.ajax({
+            type: "GET",
+            url: '/place/autocomplete',
+            data: "name=" + obj.value,
+            dataType: "json",
+            success: function (response) {
+                $("#list").empty();
+                for(key in response)
+                    $("#list").append("<option value='"+json [key].value+"'>"+json[key].title+"</option>");
+            }
+        });
+
+    }
+
+
     $(function() {
         $.datepicker.setDefaults( $.datepicker.regional[ "he" ] );
 

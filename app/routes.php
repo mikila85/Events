@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/google', 'BaseController@index');
+
 Route::get('test', 'HomeController@test');
 
 Route::get('test1', 'HomeController@test1');
