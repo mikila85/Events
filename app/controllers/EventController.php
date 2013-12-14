@@ -51,16 +51,44 @@ class EventController extends \BaseController {
 	public function store()
 	{
 
-
         $alldata = json_decode($_POST["data"], true);
 
-        $data = $alldata['events'];
+        $eventData = $alldata['events'];
+        $ticketsData = $alldata['tickets'];
+
+
+        $dateFormat = "d/m/Y";
+
+
+        $startDate = DateTime::createFromFormat($dateFormat, $eventData['startDate']);
+        $eventData['startDate'] = $startDate->format('Y-m-d');
+
+        $startDate = DateTime::createFromFormat($dateFormat, $eventData['endDate']);
+        $eventData['endDate'] = $startDate->format('Y-m-d');
+
+        $startDate = DateTime::createFromFormat($dateFormat, $eventData['lastCampainDate']);
+        $eventData['lastCampainDate'] = $startDate->format('Y-m-d');
+
+
+        $minimumDate = DateTime::createFromFormat('Y-m-d', date('Y-m-d',strtotime("-1 days")));
+        $minimumDate = $minimumDate->format('Y-m-d');
+
         $rules = array(
             'name' => 'required|min:2|max: 150',
             'description' => 'min:5',
+            'minCrowd' => 'required|numeric|between:1,999999999',
+            'maxCrowd' => 'required|numeric|between:1,999999999',
+            'minMoney' => 'required|numeric|between:1,999999999',
+
+            'startDate' => 'required|after:'. $minimumDate,
+            'entryTime' => array('required', 'regex:/([01]?[0-9]|2[0-3]):[0-5][0-9]/'),
+
+            'endDate' => 'required|after:'. $eventData['startDate'],
+            'endTime' => array('required','regex:/([01]?[0-9]|2[0-3]):[0-5][0-9]/'),
+            'lastCampainDate' => 'required|after:'. $minimumDate,
         );
 
-        $validator = Validator::make($data, $rules);
+        $validator = Validator::make($eventData, $rules);
 
         if ($validator->fails())
         {
@@ -73,10 +101,10 @@ class EventController extends \BaseController {
 
 
             $event = new Eventu;
-            $event->name = $data['name'];
-            $event->description = $data['description'];
+            $event->name = $eventData['name'];
+            $event->description = $eventData['description'];
             $event->user_ID = Auth::user()->id;
-            $event->save();
+            //$event->save();
 
 
             return json_encode(array("OK"));
