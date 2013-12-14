@@ -71,8 +71,9 @@
         $("#address").attr("disabled", "true");
     }
 
-    $('html').click(function () {
-        if ($('#list').is(':visible')) {
+    $('html').click(function (event) {
+        console.dir(event);
+        if ($('#list').is(':visible') && $(event.target).parents("#nameOfPlaceCont").length===0) {
             $("#address").removeAttr("disabled", "true");
             $("#list").hide();
         }

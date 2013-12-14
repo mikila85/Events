@@ -39,8 +39,8 @@
                 <div class="edit_form_content nospace">
                     <div class="form_text">
                         * Name of place: <br>
-                        <hidden name="placeHasID" value="0"/>
-                        <span style="position: relative; display: inline-block;">
+                        <input type="hidden" name="placeHasID" value="0">
+                        <span id="nameOfPlaceCont" style="position: relative; display: inline-block;">
                             <input id="nameOfPlace" name="nameOfPlace" type="text" class="size1" onkeyup="nameOfPlaceAjax(this,event);" onfocus="nameOfPlaceAjax(this,event);">
                             <img src="/images/create-event-ico1.png" alt="">
                             <div id="list" style="position: absolute; top: 25px; left: 0px; background: white; width: 100%;"></div>
