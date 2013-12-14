@@ -11,27 +11,44 @@
         <div id="country1" style="display: block;">
             <div class="edit_form">
                 <h3>Event #: 12345678931</h3>
+
                 <div class="edit_form_content">
-                    <div class="form_text">* Name of event up to 70 characters:<br><input name="name" type="text" class="size1" name="name"> <a href="#"><img src="/images/create-event-ico1.png" alt=""></a></div>
-                    <div class="form_text">* Short description of event up to 140 characters:<br><textarea name="description" cols="37" rows="4"></textarea></div>
+                    <div class="form_text">* Name of event up to 70 characters:<br><input name="name" type="text"
+                                                                                          class="size1" name="name"> <a
+                            href="#"><img src="/images/create-event-ico1.png" alt=""></a></div>
+                    <div class="form_text">* Short description of event up to 140 characters:<br><textarea
+                            name="description" cols="37" rows="4"></textarea></div>
                     <div class="form_text">
                         <div class="text1">Upload logo:</div>
-                        <div class="text2"><input name="" type="text" size="13"><input name="logoLink" type="button" class="browse"><br><br><img src="/images/create-event-img1.png" alt=""></div>
+                        <div class="text2"><input name="" type="text" size="13"><input name="logoLink" type="button"
+                                                                                       class="browse"><br><br><img
+                                src="/images/create-event-img1.png" alt=""></div>
                     </div>
                     <div class="form_text">
                         <div class="text1">* Category:</div>
-                        <div class="text2"><select name="category"><option>Theater &amp; Art</option></select></div>
+                        <div class="text2"><select name="category">
+                                <option>Theater &amp; Art</option>
+                            </select></div>
                     </div>
                     <div class="form_text">
                         <div class="text1">Subcategory:<br><span>(when relevant):</span></div>
-                        <div class="text2"><select name="subCategory"><option>Theater &amp; Art</option></select></div>
+                        <div class="text2"><select name="subCategory">
+                                <option>Theater &amp; Art</option>
+                            </select></div>
                     </div>
                 </div>
                 <div class="edit_form_content nospace">
-                    <div class="form_text">* Name of place:<br><hidden name="placeHasID" value="0"> <input name="nameOfPlace" type="text" class="size1"> <a href="#"><img src="/images/create-event-ico1.png" alt=""></a></div>
+                    <div class="form_text">* Name of place:<br>
+                        <hidden name="placeHasID" value="0"><input name="nameOfPlace" type="text" class="size1"> <a
+                                href="#"><img src="/images/create-event-ico1.png" alt=""></a>
+                    </div>
                     <div class="form_text">
-                        <div class="text3">* Start date:<br><input name="startDate" type="text" value="00/00/0000" class="size3"> <a href="#"><img src="/images/create-event-ico2.png" alt=""></a></div>
-                        <div class="text3">* End date:<br><input name="endDate" type="text" value="00/00/0000" class="size3"> <a href="#"><img src="/images/create-event-ico2.png" alt=""></a></div>
+                        <div class="text3">* Start date:<br><input id="startDate" name="startDate" type="text"
+                                                                   value="00/00/0000" class="size3"> <a href="#"><img
+                                    src="/images/create-event-ico2.png" alt=""></a></div>
+                        <div class="text3">* End date:<br><input id="endDate" name="endDate" type="text"
+                                                                 value="00/00/0000" class="size3"> <a href="#"><img
+                                    src="/images/create-event-ico2.png" alt=""></a></div>
                     </div>
                     <div class="form_text">* Address:<br><input name="address" type="text" class="size1"></div>
                     <div class="form_text">
@@ -41,9 +58,55 @@
                     </div>
                     <div class="form_text">
                         <div class="text5">* Entry time:</div>
-                        <div class="text6"><input name="entryTime" type="text" class="size2"></div>
-                        <div class="text5">End time:</div>
-                        <div class="text6"><input name="endTime" type="text" class="size2"></div>
+
+                        <div class="text6 input-append bootstrap-timepicker">
+                            <input id="entryTime" name="entryTime" type="text" class="size2">
+                            <span class="add-on"><i class="icon-time"></i></span>
+                        </div>
+
+                        <div class="text5" style="clear:both;">End time:</div>
+
+                        <div class="text6 input-append bootstrap-timepicker">
+                            <input id="endTime" name="endTime" type="text" class="size2">
+                            <span class="add-on"><i class="icon-time"></i></span>
+                        </div>
+
+                        <div class="text5" style="clear:both;">Time zone:</div>
+
+                        <select name="DropDownTimezone" id="DropDownTimezone" style="float: right; margin: 0 26px 0 0px;">
+                            <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+                            <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
+                            <option value="-10.0">(GMT -10:00) Hawaii</option>
+                            <option value="-9.0">(GMT -9:00) Alaska</option>
+                            <option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                            <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                            <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                            <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                            <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+                            <option value="-3.5">(GMT -3:30) Newfoundland</option>
+                            <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                            <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
+                            <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+                            <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                            <option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+                            <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
+                            <option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                            <option value="3.5">(GMT +3:30) Tehran</option>
+                            <option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                            <option value="4.5">(GMT +4:30) Kabul</option>
+                            <option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                            <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                            <option value="5.75">(GMT +5:45) Kathmandu</option>
+                            <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                            <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                            <option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                            <option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                            <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+                            <option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                            <option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                            <option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                        </select>
+
                     </div>
                     <div class="form_text">
                         <div class="text2">* Minimum amount of crowed needed<br>for the event to happen</div>
@@ -55,7 +118,9 @@
                     </div>
                     <div class="form_text">
                         <div class="text3">* Last campaign date:</div>
-                        <div class="text3"><input name="lastCampainDate" type="text" value="00/00/0000" class="size3"> <a href="#"><img src="/images/create-event-ico2.png" alt=""></a></div>
+                        <div class="text3"><input id="lastCampainDate" name="lastCampainDate" type="text"
+                                                  value="00/00/0000" class="size3"> <a href="#"><img
+                                    src="/images/create-event-ico2.png" alt=""></a></div>
                     </div>
                     <div class="form_text">
                         <div class="text2">* Maximum amount of crowd:</div>
@@ -70,7 +135,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    var countries=new ddtabcontent("countrytabs")
+    var countries = new ddtabcontent("countrytabs")
     countries.setpersist(true)
     countries.setselectedClassTarget("link") //"link" or "linkparent"
     countries.init()

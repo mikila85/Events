@@ -1,4 +1,31 @@
+
+<link type="text/css" rel="stylesheet" href="\js\timePicker\bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="\js\timePicker\bootstrap-timepicker.min.css" />
+
+<script type="text/javascript" src="/js\jQueryUI\jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="\js\jQueryUI\langs\jquery.ui.datepicker-he.js"></script>
+
+<script type="text/javascript" src="\js\timePicker\bootstrap.min.js"></script>
+<script type="text/javascript" src="\js\timePicker\bootstrap-timepicker.js"></script>
+
+
+
+<link href="\js\jQueryUI\css\ui-lightness\jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />
 <script>
+    $(function() {
+        $.datepicker.setDefaults( $.datepicker.regional[ "he" ] );
+
+        $( "#startDate" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+
+        $('#entryTime, #endTime').timepicker({
+            showMeridian: false,
+            minuteStep: 5
+        });
+    });
+
     var myJson = {};
     $(document).ready(function () {
         $(".saveEvent").click(function () {

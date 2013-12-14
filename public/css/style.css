@@ -203,7 +203,7 @@ ul li{list-style:none; float:left;}
 .create_event_details_main .white_box{width:670px; float:left; border:1px solid #c3c3c3; -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; padding:14px; margin-bottom:15px; background:#f5f5f5;}
 
 .event_content{width:100%; float:left;}
-.new_shadetabs{ width:100%; float:left; font-size:15px; border-bottom:1px solid #d7d7d7; top:0; left:0; position:relative; z-index:50;}
+.new_shadetabs{ width:100%; float:left; font-size:15px; border-bottom:1px solid #d7d7d7; top:0; left:0; position:relative; z-index:21;}
 .new_shadetabs li{float:left; list-style:none; margin:0; width:auto; margin:0 5px 0 0;}
 .new_shadetabs li a{ color:#7a7a7a; text-decoration:none; display:block; padding:10px 0; border:1px solid #d7d7d7; border-bottom:0; background:#ffffff; -moz-border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;border-radius:5px 5px 0 0; width:100px; text-align:center;}
 .new_shadetabs li a:hover{ color:#202020; text-decoration:none; border-bottom:1px solid #fff; background:#f5f5f5;}
@@ -228,7 +228,7 @@ ul li{list-style:none; float:left;}
 .edit_form_content .form_text .text3{ width:165px; float:left;}
 .edit_form_content .form_text .text4{ width:110px; float:left;}
 .edit_form_content .form_text .text5{ width:auto; float:left; line-height:35px; padding:0 5px 0 0;}
-.edit_form_content .form_text .text6{ width:90px; float:left;}
+.edit_form_content .form_text .text6{ width:130px; float:right;}
 .edit_form_content input.size1{width:285px;}
 .edit_form_content input.size2{width:65px;}
 .edit_form_content input.size3{width:120px;}
