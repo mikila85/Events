@@ -1,6 +1,5 @@
-
-<link type="text/css" rel="stylesheet" href="\js\timePicker\bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="\js\timePicker\bootstrap-timepicker.min.css" />
+<link type="text/css" rel="stylesheet" href="\js\timePicker\bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href="\js\timePicker\bootstrap-timepicker.min.css"/>
 
 <script type="text/javascript" src="/js\jQueryUI\jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="\js\jQueryUI\langs\jquery.ui.datepicker-he.js"></script>
@@ -9,29 +8,80 @@
 <script type="text/javascript" src="\js\timePicker\bootstrap-timepicker.js"></script>
 
 
-
-<link href="\js\jQueryUI\css\ui-lightness\jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />
+<link href="\js\jQueryUI\css\ui-lightness\jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
 <script>
-    function nameOfPlace(obj){
+    var a;
+    function nameOfPlaceAjax(obj, event) {
+        if (event.keyCode == 40) {//down
+            if ($("#list .selected").next().length !== 0) {
+                var temp = $("#list .selected").next();
+                $("#list .selected").removeClass("selected");
+                $(temp).addClass("selected");
+            }
+            return;
+        } else if (event.keyCode == 38) {//up
+            if ($("#list .selected").prev().length !== 0) {
+                var temp = $("#list .selected").prev();
+                $("#list .selected").removeClass("selected");
+                $(temp).addClass("selected");
+            }
+            return;
+        } else if (event.keyCode == 13) {//enter
+            if ($("#list .selected").length !== 0) {
+                nameOfPlaceClicked($("#list .selected"), event)
+            }
+            return;
+        }
+
+        if ($("#address").attr("disabled")) {
+            //$("#address").val("");
+            $("#address").removeAttr("disabled", "true");
+        }
+
+
         $.ajax({
             type: "GET",
             url: '/place/autocomplete',
             data: "name=" + obj.value,
             dataType: "json",
-            success: function (response) {
+            success: function (json) {
                 $("#list").empty();
-                for(key in response)
-                    $("#list").append("<option value='"+json [key].value+"'>"+json[key].title+"</option>");
+                for (key in json) {
+                    $("#list").append("<div class='nameOfPlaceItem' onmousemove='nameOfPlaceMouse(this);' onclick='nameOfPlaceClicked(this, event);' address='" + json[key].formatted_address + "' place_id='" + json [key].ID + "'>" + json[key].name + "</div>");
+                    $("#list").show();
+                }
+                $("#list").children().first().addClass("selected");
             }
         });
-
     }
 
+    function nameOfPlaceMouse(obj) {
+        if ($("#list .selected") != obj) {
+            $("#list .selected").removeClass("selected");
+            $(obj).addClass("selected");
+        }
+    }
 
-    $(function() {
-        $.datepicker.setDefaults( $.datepicker.regional[ "he" ] );
+    function nameOfPlaceClicked(obj, event) {
+        event.stopPropagation();
+        $("#address").val(($(obj).attr("address")));
+        $("#nameOfPlace").val($(obj).text());
 
-        $( "#startDate, #endDate, #lastCampainDate" ).datepicker({
+        $("#list").hide();
+        $("#address").attr("disabled", "true");
+    }
+
+    $('html').click(function () {
+        if ($('#list').is(':visible')) {
+            $("#address").removeAttr("disabled", "true");
+            $("#list").hide();
+        }
+    });
+
+    $(function () {
+        $.datepicker.setDefaults($.datepicker.regional[ "he" ]);
+
+        $("#startDate, #endDate, #lastCampainDate").datepicker({
             changeMonth: true,
             changeYear: true
         });
@@ -64,14 +114,14 @@
                 type: "POST",
                 url: form.attr('action'),
                 data: "data=" + JSON.stringify(myJson),
-                 dataType: "json",
+                dataType: "json",
                 success: function (response) {
                     console.log(response);
 
                     $(".formAlert").remove();
                     $.each(response, function (key, value) {
-                      //  $("input[name='" + key + "']").after("<span class='formAlert'>" + value + "</span>");
-                        $("[name='" + key + "']").css('border','1px solid red');
+                        //  $("input[name='" + key + "']").after("<span class='formAlert'>" + value + "</span>");
+                        $("[name='" + key + "']").css('border', '1px solid red');
                     });
 
 
