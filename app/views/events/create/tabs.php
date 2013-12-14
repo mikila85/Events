@@ -16,15 +16,15 @@
                     <div class="form_text">* Short description of event up to 140 characters:<br><textarea name="description" cols="37" rows="4"></textarea></div>
                     <div class="form_text">
                         <div class="text1">Upload logo:</div>
-                        <div class="text2"><input name="" type="text" size="13"><input name="" type="button" class="browse"><br><br><img src="/images/create-event-img1.png" alt=""></div>
+                        <div class="text2"><input name="" type="text" size="13"><input name="logolink" type="button" class="browse"><br><br><img src="/images/create-event-img1.png" alt=""></div>
                     </div>
                     <div class="form_text">
                         <div class="text1">* Category:</div>
-                        <div class="text2"><select name=""><option>Theater &amp; Art</option></select></div>
+                        <div class="text2"><select name="category"><option>Theater &amp; Art</option></select></div>
                     </div>
                     <div class="form_text">
                         <div class="text1">Subcategory:<br><span>(when relevant):</span></div>
-                        <div class="text2"><select name=""><option>Theater &amp; Art</option></select></div>
+                        <div class="text2"><select name="subcategory"><option>Theater &amp; Art</option></select></div>
                     </div>
                 </div>
                 <div class="edit_form_content nospace">
