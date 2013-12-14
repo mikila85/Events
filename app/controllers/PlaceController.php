@@ -76,7 +76,7 @@ class PlaceController extends \BaseController {
     public function autocomplete()
     {
         $searchString = $_GET['name'];
-        $results = DB::select("select ID,name,formatted_address from places where name like ?", array('%'. $searchString .'%'));
+        $results = DB::select("select ID,name,formatted_address from places where name like ? LIMIT 5", array('%'. $searchString .'%'));
 
         return json_encode($results, JSON_UNESCAPED_UNICODE);
     }
