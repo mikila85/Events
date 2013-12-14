@@ -15,7 +15,7 @@
     $(function() {
         $.datepicker.setDefaults( $.datepicker.regional[ "he" ] );
 
-        $( "#startDate" ).datepicker({
+        $( "#startDate, #endDate, #lastCampainDate" ).datepicker({
             changeMonth: true,
             changeYear: true
         });
