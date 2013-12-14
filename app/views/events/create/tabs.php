@@ -71,7 +71,9 @@
                             <span class="add-on"><i class="icon-time"></i></span>
                         </div>
 
-                        <select name="DropDownTimezone" id="DropDownTimezone">
+                        <div class="text5" style="clear:both;">Time zone:</div>
+
+                        <select name="DropDownTimezone" id="DropDownTimezone" style="float: right; margin: 0 26px 0 0px;">
                             <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
                             <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
                             <option value="-10.0">(GMT -10:00) Hawaii</option>
