@@ -71,13 +71,20 @@
         $("#address").attr("disabled", "true");
     }
 
+    $('nameOfPlace').blur(function (event) {
+        makeNameLoseFocus(event);
+    });
+
     $('html').click(function (event) {
-        console.dir(event);
-        if ($('#list').is(':visible') && $(event.target).parents("#nameOfPlaceCont").length===0) {
+        makeNameLoseFocus(event);
+    });
+
+    function makeNameLoseFocus( event) {
+        if ($('#list').is(':visible') && $(event.target).parents("#nameOfPlaceCont").length === 0) {
             $("#address").removeAttr("disabled", "true");
             $("#list").hide();
         }
-    });
+    }
 
     $(function () {
         $.datepicker.setDefaults($.datepicker.regional[ "he" ]);
@@ -119,10 +126,9 @@
                 success: function (response) {
                     console.log(response);
 
-                    $(".formAlert").remove();
+                    $(".formAlert").removeClass("formAlert");
                     $.each(response, function (key, value) {
-                        //  $("input[name='" + key + "']").after("<span class='formAlert'>" + value + "</span>");
-                        $("[name='" + key + "']").css('border', '1px solid red');
+                        $("[name='" + key + "']").addClass('formAlert');
                     });
 
 
@@ -157,9 +163,9 @@
         return o;
     };
 
-    $('#createEvent').bind("keyup keypress", function(e) {
+    $('#createEvent').bind("keyup keypress", function (e) {
         var code = e.keyCode || e.which;
-        if (code  == 13) {
+        if (code == 13) {
             e.preventDefault();
             return false;
         }
