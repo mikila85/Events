@@ -112,7 +112,7 @@ class UsersController extends \BaseController {
 
         $layout =  View::make('layouts.main');
 
-        $layout->nest('content', 'authmanager::Users.login');
+        $layout->nest('content', 'authmanager::users.login');
         return $layout;
     }
     public function loginAuth()
