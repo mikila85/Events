@@ -75,16 +75,14 @@
         makeNameLoseFocus(event);
     });
 
-    $('html').click(function (event) {
-        makeNameLoseFocus(event);
-    });
 
-    function makeNameLoseFocus( event) {
-        if ($('#list').is(':visible') && $(event.target).parents("#nameOfPlaceCont").length === 0) {
+    $('html').click(function (event) {
+        if ($('#list').is(':visible') && $(event.target).parents("#nameOfPlaceCont").length===0) {
             $("#address").removeAttr("disabled", "true");
             $("#list").hide();
         }
-    }
+    });
+
 
     $(function () {
         $.datepicker.setDefaults($.datepicker.regional[ "he" ]);
