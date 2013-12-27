@@ -8,4 +8,5 @@
 
 class Eventu extends Eloquent  {
     protected $table = 'events';
+    protected $primaryKey = 'ID';
 }

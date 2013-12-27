@@ -88,7 +88,15 @@ class EventController extends \BaseController {
             'lastCampainDate' => 'required|after:'. $minimumDate,
         );
 
+        $ticketRules = array(
+            'name' => 'required|min:1|max: 150',
+            'price' => 'numeric|between:0,999999999',
+            'how_many_for_sale' => 'required|numeric|between:1,999999999',
+            'deadline' => 'required|after:'. $minimumDate,
+        );
+
         $validator = Validator::make($eventData, $rules);
+
 
         if ($validator->fails())
         {
@@ -98,14 +106,42 @@ class EventController extends \BaseController {
 
         } else {
 
+            //validate tickets
+
+            foreach($ticketsData as $key=>$ticket){
+
+                $startDate = DateTime::createFromFormat($dateFormat, $ticket['deadline']);
+                $ticket['deadline'] = $startDate->format('Y-m-d');
+
+                $validator = Validator::make($ticket, $ticketRules);
+
+                if ($validator->fails())
+                {
+                    $errors = $validator->messages()->getMessages();
+                    return json_encode($errors);
+                }
+            }
+
 
 
             $event = new Eventu;
+            $event->start_date = $eventData['startDate'];
+            $event->end_date = $eventData['endDate'];
             $event->name = $eventData['name'];
             $event->description = $eventData['description'];
             $event->user_ID = Auth::user()->id;
-            //$event->save();
+            $event->save();
 
+
+            foreach($ticketsData as $key=>$ticket){
+                $eticket = new Ticket;
+                $eticket->event_ID = $event->ID;
+                $eticket->name = $ticket['name'];
+                $eticket->price = $ticket['price'];
+                $eticket->how_many_for_sale = $ticket['how_many_for_sale'];
+                $eticket->expiry_date = $ticket['deadline'];
+                $eticket->save();
+            }
 
             return json_encode(array("OK"));
         }
