@@ -119,6 +119,7 @@ class EventController extends \BaseController {
                 $startDate = DateTime::createFromFormat($dateFormat, $ticket['deadline']);
                 $ticket['deadline'] = $startDate->format('Y-m-d');
 
+                $ticketsData[$key]['deadline'] = $startDate->format('Y-m-d');
                 $validator = Validator::make($ticket, $ticketRules);
 
                 if ($validator->fails())
@@ -133,16 +134,22 @@ class EventController extends \BaseController {
 
 
             $placeId = 0;
-            if((int) $eventData['place_id'] > 0){
+            if(!array_key_exists('place_id', $eventData)){
 
                 $place = new Place;
-                $place->name = $eventData["name"];
-                $place->county = $eventData["county"];
+                $place->name = $eventData["nameOfPlace"];
+                $place->country = $eventData["country"];
                 $place->city = $eventData["city"];
                 $place->street = $eventData["street"];
-                $place->house_num = $eventData["house_num"];
+
+                if(array_key_exists('house_num', $eventData)){
+                     $place->house_num = $eventData["house_num"];
+                }
                 $place->map_cords = $eventData["map_cords"];
-                $place->full_address = $eventData["full_address"];
+
+                if(array_key_exists('house_num', $eventData)){
+                    $place->full_address = $eventData["full_address"];
+                }
                 $place->formatted_address = $eventData["formatted_address"];
                 $place->save();
 
@@ -158,6 +165,7 @@ class EventController extends \BaseController {
             $event->start_date = $eventData['startDate'];
             $event->end_date = $eventData['endDate'];
             $event->name = $eventData['name'];
+            $event->image = $eventData['imageUploadUrl'];
             $event->description = $eventData['description'];
             $event->user_ID = Auth::user()->id;
             $event->save();
