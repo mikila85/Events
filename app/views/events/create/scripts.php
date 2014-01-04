@@ -35,9 +35,9 @@
             return;
         }
 
-        if ($("#address").attr("disabled")) {
-            //$("#address").val("");
-            $("#address").removeAttr("disabled", "true");
+        if ($("#place_address").attr("disabled")) {
+            //$("#place_address").val("");
+            $("#place_address").removeAttr("disabled", "true");
         }
 
 
@@ -66,14 +66,14 @@
 
     function nameOfPlaceClicked(obj, event) {
         event.stopPropagation();
-        $("#address").val(($(obj).attr("address")));
+        $("#place_address").val(($(obj).attr("address")));
         $("#nameOfPlace").val($(obj).text());
 
         $("#place_address_cont").empty();
         $("#place_address_cont").append("<input type='hidden' name='place_id' value='" + $(obj).attr("place_id") + "'>")
 
         $("#list").hide();
-        $("#address").attr("disabled", "true");
+        $("#place_address").attr("disabled", "true");
     }
 
     $('nameOfPlace').blur(function (event) {
@@ -83,7 +83,7 @@
 
     $('html').click(function (event) {
         if ($('#list').is(':visible') && $(event.target).parents("#nameOfPlaceCont").length===0) {
-            $("#address").removeAttr("disabled", "true");
+            $("#place_address").removeAttr("disabled", "true");
             $("#list").hide();
         }
     });
@@ -94,7 +94,8 @@
 
         $("#startDate, #endDate, #lastCampainDate, .ticketDate").datepicker({
             changeMonth: true,
-            changeYear: true
+            changeYear: true,
+            dateFormat: 'dd/mm/y'
         });
 
         $('#entryTime, #endTime').timepicker({

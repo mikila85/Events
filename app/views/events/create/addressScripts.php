@@ -5,7 +5,7 @@
 <script>
 
 
-    $('#place_address').blur(function(){
+    $('#place_address').change(function(){
         getAddress($("#place_address").val());
     });
 

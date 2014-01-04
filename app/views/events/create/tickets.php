@@ -11,8 +11,9 @@
                 <div class="text1">How many for sale:</div>
                 <div class="text2"><input name="how_many_for_sale" type="text"></div>
                 <div class="text2">Ticket deadline:</div>
-                <div class="text1"><input name="deadline" class="ticketDate" type="text" value="00/00/00" size="20"> &nbsp; <a href="#"><img
-                            src="/images/create-event-ico2.png" alt=""></a></div>
+                <div class="text1">
+                    <input name="deadline" class="ticketDate" type="text" value="00/00/00" size="20"> &nbsp;
+                    <img src="/images/create-event-ico2.png" onclick="$(this).siblings('input').focus();" alt=""></div>
                 <div class="text3">Description of perk:<br><textarea name="deadline" cols="" rows=""></textarea></div>
             </div>
         </div>

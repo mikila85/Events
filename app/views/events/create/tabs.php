@@ -47,9 +47,9 @@
                         </span>
                     </div>
                     <div class="form_text">
-                        <div class="text3">* Start date:<br><input id="startDate" name="startDate" type="text" value="00/00/0000" class="size3"><img src="/images/create-event-ico2.png" alt="" onclick="$('#startDate').focus();">
+                        <div class="text3">* Start date:<br><input id="startDate" name="startDate" type="text" value="00/00/00" class="size3"><img src="/images/create-event-ico2.png" alt="" onclick="$('#startDate').focus();">
                         </div>
-                        <div class="text3">* End date:<br><input id="endDate" name="endDate" type="text" value="00/00/0000" class="size3">
+                        <div class="text3">* End date:<br><input id="endDate" name="endDate" type="text" value="00/00/00" class="size3">
                             <img src="/images/create-event-ico2.png" alt="" onclick="$('#endDate').focus();"></div>
                     </div>
                     <div class="form_text">* Address:<br><input id="place_address" name="address" type="text" class="size1"><div id="place_address_cont"></div>
