@@ -29,7 +29,7 @@ class UploadController extends BaseController {
                 ));
 
                 unlink($finalpath);
-                return json_encode(array('ObjectURL'=> $respond->get('ObjectURL')));
+                return $respond->get('ObjectURL');
             } else {
                 return Response::json('error', 400);
             }
