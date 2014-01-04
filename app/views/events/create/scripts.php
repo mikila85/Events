@@ -7,7 +7,7 @@
 <script type="text/javascript" src="\js\timePicker\bootstrap.min.js"></script>
 <script type="text/javascript" src="\js\timePicker\bootstrap-timepicker.js"></script>
 
-<script type="text/javascript" src="\js\SimpleAjaxUploader.min.js"></script>
+<script type="text/javascript" src="\js\jquery.ajaxfileupload.js"></script>
 
 
 <link href="\js\jQueryUI\css\ui-lightness\jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
@@ -170,10 +170,9 @@
             return false;
         }
     });
-
-    var uploader = new ss.SimpleUpload({
-        button: 'abc', // HTML element used as upload button
-        url: '/upload/image', // URL of server-side upload handler
-        name: 'logoLink' // Parameter name of the uploaded file
-    });
+    function uploadImage(obj){
+        $(obj).ajaxfileupload({
+            'action': '/upload/image'
+        });
+    }
 </script>
