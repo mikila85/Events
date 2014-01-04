@@ -7,6 +7,8 @@
 <script type="text/javascript" src="\js\timePicker\bootstrap.min.js"></script>
 <script type="text/javascript" src="\js\timePicker\bootstrap-timepicker.js"></script>
 
+<script type="text/javascript" src="\js\jquery.ajaxfileupload.js"></script>
+
 
 <link href="\js\jQueryUI\css\ui-lightness\jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
 <script>
@@ -168,5 +170,9 @@
             return false;
         }
     });
-
+    function uploadImage(obj){
+        $(obj).ajaxfileupload({
+            'action': '/upload/image'
+        });
+    }
 </script>
