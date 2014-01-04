@@ -137,20 +137,15 @@ class EventController extends \BaseController {
             if(!array_key_exists('place_id', $eventData)){
 
                 $place = new Place;
-                $place->name = $eventData["nameOfPlace"];
-                $place->country = $eventData["country"];
-                $place->city = $eventData["city"];
-                $place->street = $eventData["street"];
 
-                if(array_key_exists('house_num', $eventData)){
-                     $place->house_num = $eventData["house_num"];
-                }
-                $place->map_cords = $eventData["map_cords"];
-
-                if(array_key_exists('house_num', $eventData)){
-                    $place->full_address = $eventData["full_address"];
-                }
-                $place->formatted_address = $eventData["formatted_address"];
+                $place->name = $this->isExistsInArray("nameOfPlace",$eventData);
+                $place->country = $this->isExistsInArray("country",$eventData);
+                $place->city = $this->isExistsInArray("city",$eventData);
+                $place->street = $this->isExistsInArray("street",$eventData);
+                $place->house_num = $this->isExistsInArray("house_num",$eventData);
+                $place->map_cords = $this->isExistsInArray("map_cords",$eventData);
+                $place->full_address = $this->isExistsInArray("full_address",$eventData);
+                $place->formatted_address = $this->isExistsInArray("formatted_address",$eventData);
                 $place->save();
 
                 $placeId =  $place->ID;
@@ -264,4 +259,11 @@ class EventController extends \BaseController {
 		//
 	}
 
+
+    function isExistsInArray ($key, $data){
+        if(array_key_exists($key, $data)){
+            return $data[$key];
+        }
+        return "";
+    }
 }
