@@ -114,6 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Myvendor\Authmanager\AuthmanagerServiceProvider',
+        'Aws\Laravel\AwsServiceProvider',
 
 	),
 
@@ -179,7 +180,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-
+        'AWS'             => 'Aws\Laravel\AwsFacade',
 	),
 
 );

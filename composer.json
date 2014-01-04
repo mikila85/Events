@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.0.*",
         "hybridauth/hybridauth": "*",
-        "paypal/adaptivepayments-sdk-php": "dev-master"
+        "paypal/adaptivepayments-sdk-php": "dev-master",
+        "aws/aws-sdk-php-laravel": "1.*"
 	},
 	"autoload": {
 		"classmap": [
