@@ -171,7 +171,13 @@
         }
     });
     $("#imageUpload").ajaxfileupload({
-            'action': '/upload/image'
+        'action': '/upload/image',
+        onComplete: function(filename, response) {
+            if (!response) {
+                $("#imageUploaded").attr("src", filename);
+                return false;
+            }
+        }
         });
 
 </script>
