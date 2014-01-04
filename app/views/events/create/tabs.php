@@ -117,7 +117,7 @@
                     <div class="form_text">
                         <div class="text3">* Last campaign date:</div>
                         <div class="text3">
-                            <input id="lastCampainDate" name="lastCampainDate" type="text" value="00/00/0000" class="size3"><img src="/images/create-event-ico2.png" alt="" onclick="$('#lastCampainDate').focus();">
+                            <input id="lastCampainDate" name="lastCampainDate" type="text" value="00/00/00" class="size3"><img src="/images/create-event-ico2.png" alt="" onclick="$('#lastCampainDate').focus();">
                         </div>
                     </div>
                     <div class="form_text">
