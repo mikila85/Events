@@ -20,7 +20,7 @@
                     <div class="form_text">
                         <div class="text1">Upload logo:</div>
                         <div class="text2">
-                               <input name="logoLink" id="imageUpload" type="file" class="browse"><br><br><img id="imageUploaded" width="146" src="/images/create-event-img1.png" alt="">
+                               <input name="logoLink" id="imageUpload" type="file" class="browse"><input type="hidden" name="imageUploadUrl" id="imageUploadUrl"><br><br><img id="imageUploaded" width="146" src="/images/create-event-img1.png" alt="">
                         </div>
                     </div>
                     <div class="form_text">

@@ -178,6 +178,7 @@
         onComplete: function(filename, response) {
             if (filename) {
                 $("#imageUploaded").attr("src", filename);
+                $("#imageUploadUrl").val(filename);
                 return false;
             }
         }
