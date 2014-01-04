@@ -25,3 +25,7 @@ Route::get('pay', 'PaypaltestController@pay');
 Route::resource('event', 'EventController');
 Route::get('place/autocomplete', 'PlaceController@autocomplete');
 Route::resource('place', 'PlaceController');
+
+
+//upload
+Route::get('upload/image', 'UploadController@image');
