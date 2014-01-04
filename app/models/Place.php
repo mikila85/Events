@@ -6,6 +6,6 @@
  * Time: 1:35 PM
  */
 class Place extends Eloquent  {
-    protected $table = 'palces';
+    protected $table = 'places';
     protected $primaryKey = 'ID';
 }
