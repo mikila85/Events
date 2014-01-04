@@ -61,7 +61,6 @@ class EventController extends \BaseController {
         $eventData = $alldata['events'];
         $ticketsData = $alldata['tickets'];
 
-
         $dateFormat = "d/m/Y";
 
 
@@ -91,6 +90,7 @@ class EventController extends \BaseController {
             'endDate' => 'required|after:'. $eventData['startDate'],
             'endTime' => array('required','regex:/([01]?[0-9]|2[0-3]):[0-5][0-9]/'),
             'lastCampainDate' => 'required|after:'. $minimumDate,
+            'formatted_address' => 'required|min:1'
         );
 
         $ticketRules = array(
@@ -99,6 +99,8 @@ class EventController extends \BaseController {
             'how_many_for_sale' => 'required|numeric|between:1,999999999',
             'deadline' => 'required|after:'. $minimumDate,
         );
+
+
 
         $validator = Validator::make($eventData, $rules);
 
@@ -112,7 +114,6 @@ class EventController extends \BaseController {
         } else {
 
             //validate tickets
-
             foreach($ticketsData as $key=>$ticket){
 
                 $startDate = DateTime::createFromFormat($dateFormat, $ticket['deadline']);
@@ -127,9 +128,33 @@ class EventController extends \BaseController {
                 }
             }
 
+            //save the place
 
 
+
+            $placeId = 0;
+            if((int) $eventData['place_id'] > 0){
+
+                $place = new Place;
+                $place->name = $eventData["name"];
+                $place->county = $eventData["county"];
+                $place->city = $eventData["city"];
+                $place->street = $eventData["street"];
+                $place->house_num = $eventData["house_num"];
+                $place->map_cords = $eventData["map_cords"];
+                $place->full_address = $eventData["full_address"];
+                $place->formatted_address = $eventData["formatted_address"];
+                $place->save();
+
+                $placeId =  $place->ID;
+            } else {
+                $placeId = (int) $eventData['place_id'];
+            }
+
+
+            //save the event
             $event = new Eventu;
+            $event->place_ID = $placeId;
             $event->start_date = $eventData['startDate'];
             $event->end_date = $eventData['endDate'];
             $event->name = $eventData['name'];
@@ -138,6 +163,7 @@ class EventController extends \BaseController {
             $event->save();
 
 
+            //save the tickets
             foreach($ticketsData as $key=>$ticket){
                 $eticket = new Ticket;
                 $eticket->event_ID = $event->ID;

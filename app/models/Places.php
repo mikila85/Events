@@ -13,7 +13,7 @@ class Places {
      * @param array $address -
      * @return int - address ID
      */
-    public static function getEventIDByAddress(array $address){
+    public static function getPlaceIDByArray(array $address){
         if($data = DB::table('places')->where('full_address', '=', $address['full_address'])->first()){
             return $data->ID;
         } else {
