@@ -7,30 +7,27 @@
  */
 
 class UploadController extends BaseController {
-    /*
-    |--------------------------------------------------------------------------
-    | Default Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    |	Route::get('/', 'HomeController@showWelcome');
-    |
-    */
+
 
     public function image()
     {
         $file = Input::file('logoLink');
-
-        $destinationPath = public_path().'/img/';
+        $destinationPath = storage_path().'/uploads/';
         $filename = $file->getClientOriginalName();
-        $upload_success = Input::file('file')->move($destinationPath, $filename);
+        $upload_success = Input::file('logoLink')->move($destinationPath, $filename);
 
         $finalpath = $destinationPath . $filename;  
         if( $upload_success ) {
-            return $finalpath;
+
+            $s3 = AWS::get('s3');
+            $respond = $s3->putObject(array(
+                'Bucket'     => 'eventu',
+                'Key'        => $filename,
+                'SourceFile' => $finalpath,
+            ));
+
+            unlink($finalpath);
+            return json_encode(array('ObjectURL'=> $respond->get('ObjectURL')));
         } else {
             return Response::json('error', 400);
         }

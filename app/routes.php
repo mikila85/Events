@@ -28,4 +28,4 @@ Route::resource('place', 'PlaceController');
 
 
 //upload
-Route::get('upload/image', 'UploadController@image');
+Route::post('upload/image', 'UploadController@image');
