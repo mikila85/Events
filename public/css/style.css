@@ -295,3 +295,4 @@ ul li{list-style:none; float:left;}
     color: black;
 }
 .formAlert{border: 1px solid red!important;}
+.ui-datepicker{z-index: 20!important;}

@@ -87,7 +87,7 @@
     $(function () {
         $.datepicker.setDefaults($.datepicker.regional[ "he" ]);
 
-        $("#startDate, #endDate, #lastCampainDate").datepicker({
+        $("#startDate, #endDate, #lastCampainDate, .ticketDate").datepicker({
             changeMonth: true,
             changeYear: true
         });

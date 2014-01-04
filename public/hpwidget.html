@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .progressBar{
+            height: 8px;
+            display: block;
+        }
+        .progressOuter{
+            background-image: url("images/HPStripBW.png");
+            width: 161px;
+            position: relative;
+        }
+        .progressBarInner{
+            background-image: url("images/HPStrip.png");
+            width: 0px;
+        }
+        .progressBarFlag{
+            background-image: url("images/HPFlag.png");
+            height: 30px;
+            width: 21px;
+            top: -18px;
+            left: -2px;
+            display: block;
+            position: absolute;
+        }
+        .progressBarFlagOff{
+            background-image: url("images/HPFlagBW.png");
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+    <div class="progressBar progressOuter">
+        <div style="width: 47px;" class="progressBar progressBarInner"></div>
+        <div style="left: 97px;" class="progressBarFlag progressBarFlagOf"></div>
+    </div>
+</body>
+</html>

@@ -11,7 +11,7 @@
                 <div class="text1">How many for sale:</div>
                 <div class="text2"><input name="how_many_for_sale" type="text"></div>
                 <div class="text2">Ticket deadline:</div>
-                <div class="text1"><input name="deadline" type="text" value="00/00/00" size="20"> &nbsp; <a href="#"><img
+                <div class="text1"><input name="deadline" class="ticketDate" type="text" value="00/00/00" size="20"> &nbsp; <a href="#"><img
                             src="/images/create-event-ico2.png" alt=""></a></div>
                 <div class="text3">Description of perk:<br><textarea name="deadline" cols="" rows=""></textarea></div>
             </div>
@@ -22,7 +22,12 @@
 
 <script>
     $(".add_ticket").click(function(){
-            $("#sideTicketsContainer").append($("#sideTicketsContainer").children().first().clone());
-        return false;
+        $(".ticketDate").removeClass("hasDatepicker");
+        $("#sideTicketsContainer").append(($("#sideTicketsContainer").children().first().clone()));
+        $(".ticketDate").datepicker({
+            changeMonth: true,
+            changeYear: true
         });
+        return false;
+    });
 </script>
