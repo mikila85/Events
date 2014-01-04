@@ -20,7 +20,9 @@
                     <div class="form_text">
                         <div class="text1">Upload logo:</div>
                         <div class="text2">
-                            <input name="" type="text" size="13"><input name="logoLink" type="file" class="browse"><br><br><img src="/images/create-event-img1.png" alt="">
+                            <form action="/upload/image.php" method="post" enctype="multipart/form-data">
+                                <input name="" type="text" size="13"><input name="logoLink" type="file" onchange="this.form.submit();" class="browse"><br><br><img src="/images/create-event-img1.png" alt="">
+                            </form>
                         </div>
                     </div>
                     <div class="form_text">
