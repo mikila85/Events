@@ -12,8 +12,7 @@ class UploadController extends BaseController {
     public function image()
     {
         $file = Input::file('logoLink');
-
-        $destinationPath = public_path().'/img/';
+        $destinationPath = storage_path().'/uploads/';
         $filename = $file->getClientOriginalName();
         $upload_success = Input::file('logoLink')->move($destinationPath, $filename);
 
@@ -28,7 +27,7 @@ class UploadController extends BaseController {
             ));
 
             unlink($finalpath);
-            return $respond->get('ObjectURL');
+            return json_encode(array('ObjectURL'=> $respond->get('ObjectURL')));
         } else {
             return Response::json('error', 400);
         }
