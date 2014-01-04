@@ -170,9 +170,8 @@
             return false;
         }
     });
-    function uploadImage(obj){
-        $(obj).ajaxfileupload({
+    $("#imageUpload").ajaxfileupload({
             'action': '/upload/image'
         });
-    }
+
 </script>
