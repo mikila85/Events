@@ -20,7 +20,7 @@
                     <div class="form_text">
                         <div class="text1">Upload logo:</div>
                         <div class="text2">
-                               <input name="logoLink" id="imageUpload" type="file" class="browse"><br><br><img id="imageUploaded" src="/images/create-event-img1.png" alt="">
+                               <input name="logoLink" id="imageUpload" type="file" class="browse"><br><br><img id="imageUploaded" width="146" src="/images/create-event-img1.png" alt="">
                         </div>
                     </div>
                     <div class="form_text">
@@ -52,12 +52,7 @@
                         <div class="text3">* End date:<br><input id="endDate" name="endDate" type="text" value="00/00/0000" class="size3">
                             <img src="/images/create-event-ico2.png" alt="" onclick="$('#endDate').focus();"></div>
                     </div>
-                    <div class="form_text">* Address:<br><input id="address" name="address" type="text" class="size1">
-                    </div>
-                    <div class="form_text">
-                        <div class="text1">* Zip code:<br><input name="zip" type="text" class="size2"></div>
-                        <div class="text4">* City:<br><input name="city" type="text" class="size4"></div>
-                        <div class="text4">* Country:<br><input name="country" type="text" class="size4"></div>
+                    <div class="form_text">* Address:<br><input id="place_address" name="address" type="text" class="size1"><div id="place_address_cont"></div>
                     </div>
                     <div class="form_text">
                         <div class="text5">* Entry time:</div>

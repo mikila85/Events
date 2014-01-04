@@ -7,10 +7,14 @@ class EventController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function add()
 	{
-		//
-	}
+        $layout =  View::make('layouts.main');
+
+        $layout->nest('content', 'events.addEvent');
+        return $layout;
+
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -35,7 +39,8 @@ class EventController extends \BaseController {
             'eventDistribution' => View::make('events.create.eventDistribution'),
             'ga' => View::make('events.create.ga'),
             'bottomButtons' => View::make('events.create.bottomButtons'),
-            'scripts' => View::make('events.create.scripts')
+            'scripts' => View::make('events.create.scripts'),
+            'addressScripts' => View::make('events.create.addressScripts')
         ));
 
 

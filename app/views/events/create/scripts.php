@@ -69,6 +69,9 @@
         $("#address").val(($(obj).attr("address")));
         $("#nameOfPlace").val($(obj).text());
 
+        $("#place_address_cont").empty();
+        $("#place_address_cont").append("<input type='hidden' name='place_id' value='" + $(obj).attr("place_id") + "'>")
+
         $("#list").hide();
         $("#address").attr("disabled", "true");
     }
@@ -173,11 +176,11 @@
     $("#imageUpload").ajaxfileupload({
         'action': '/upload/image',
         onComplete: function(filename, response) {
-            if (!response) {
+            if (filename) {
                 $("#imageUploaded").attr("src", filename);
                 return false;
             }
         }
-        });
+    });
 
 </script>

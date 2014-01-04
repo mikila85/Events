@@ -22,6 +22,9 @@ Route::get('test1', 'HomeController@test1');
 
 Route::get('pay', 'PaypaltestController@pay');
 
+Route::get('event/add', 'EventController@add');
+
+
 Route::resource('event', 'EventController');
 Route::get('place/autocomplete', 'PlaceController@autocomplete');
 Route::resource('place', 'PlaceController');

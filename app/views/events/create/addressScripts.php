@@ -1,43 +1,36 @@
-<style>
-    .formLabel {
-        width: 150px;
-        display: inline-block;
-    }
-    .formAlert{
-        color:red;
-        font-weight: bold;
-    }
-</style>
-
-
-
-    <span class="formLabel">Address:</span>
-    <input id="" type="text" value=""  placeholder="fifth avenue 24/2" name="address[full_address]"></br>
-
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8vsWhdlN5xOdKltQ2mgHaXiY_k57jbTs&sensor=true&language=iw">
+</script>
 
 <script>
 
 
     $('#place_address').blur(function(){
         getAddress($("#place_address").val());
-        return false;
     });
 
     var address_results;
+
     function getAddress(address){
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 address_results = results;
-                parseAddress(results);
+                var parsed_address =  parseAddress(results);
+                $("#place_address").val(parsed_address["formatted_address"]);
+                $("#place_address_cont").empty();
+                $.each( parsed_address, function( key, value) {
+                    $("#place_address_cont").append("<input type='hidden' name='" + key + "' value='" + value + "'>")
+                });
+
             } else {
-                alert("Geocode was not successful for the following reason: " + status);
+                return "Geocode was not successful for the following reason: " + status;
             }
         });
     }
 
     function parseAddress(results){
-        var parsed_address = [];
+        var parsed_address = {};
 
         $.each( address_results[0].address_components, function( key, addressPart) {
             parsed_address[addressNamefix(addressPart.types[0])] =  addressPart.long_name;
@@ -45,7 +38,8 @@
 
         parsed_address["formatted_address"] = results[0]["formatted_address"];
         parsed_address["map_cords"] = address_results[0].geometry.location.lat() + "/" + address_results[0].geometry.location.lng();
-        console.dir(parsed_address);
+
+        return parsed_address;
     }
 
     function addressNamefix(address){
